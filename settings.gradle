@@ -1,0 +1,3 @@
+rootProject.name='RLottieAndroid'
+include ':sample_app'
+include ':rlottie'

@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: "../ktlint.gradle"
+
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.discord'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    ndkVersion rootProject.ext.ndkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+
+        externalNativeBuild {
+            ndkBuild {
+                arguments "NDK_APPLICATION_MK:=jni/Application.mk", "APP_PLATFORM:=android-21", "--jobs=8"
+                abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            }
+        }
+    }
+
+    sourceSets.main.jniLibs.srcDirs = ['./jni/']
+
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
+        }
+    }
+}
+
+dependencies {
+    // Used for back-porting android features.
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+}
