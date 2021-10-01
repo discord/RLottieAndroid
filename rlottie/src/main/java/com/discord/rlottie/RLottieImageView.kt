@@ -16,7 +16,7 @@ import java.util.*
  * native quality performance
  */
 @Suppress("unused")
-class RLottieImageView : AppCompatImageView {
+open class RLottieImageView : AppCompatImageView {
   private var layerColors: HashMap<String, Int>? = null
   private var drawable: RLottieDrawable? = null
   private var playbackMode = RLottieDrawable.PlaybackMode.FREEZE

@@ -38,7 +38,7 @@ import kotlin.math.min
  * but converted to Kotlin, and some cleanup made
  */
 @Suppress("unused")
-class RLottieDrawable : BitmapDrawable, Animatable {
+open class RLottieDrawable : BitmapDrawable, Animatable {
 
   private var width = 0
   private var height = 0
