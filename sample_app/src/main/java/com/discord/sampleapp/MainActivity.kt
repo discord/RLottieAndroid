@@ -2,6 +2,7 @@ package com.discord.sampleapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.discord.rlottie.RLottie
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
 
-    System.loadLibrary("dsti")
+    RLottie.init()
   }
 
   override fun onResume() {
