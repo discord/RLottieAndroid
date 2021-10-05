@@ -1,5 +1,3 @@
 rootProject.name='RLottieAndroid'
+include ':sample_app'
 include ':rlottie'
-
-// Include when testing locally.
-// include ':sample_app'
