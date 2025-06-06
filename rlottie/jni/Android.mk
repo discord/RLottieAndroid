@@ -12,6 +12,7 @@ LOCAL_CFLAGS += -O3 -funroll-loops -finline-functions
 LOCAL_ARM_MODE := arm
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_MODULE := flac
+LOCAL_LDFLAGS += "-Wl,-z,max-page-size=16384"
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -25,6 +26,7 @@ LOCAL_SRC_FILES     := \
 ./lz4/lz4.c \
 ./lz4/lz4frame.c \
 ./lz4/xxhash.c
+LOCAL_LDFLAGS += "-Wl,-z,max-page-size=16384"
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -88,6 +90,8 @@ else ifeq ($(TARGET_ARCH_ABI),$(filter $(TARGET_ARCH_ABI),arm64-v8a))
 endif
 
 LOCAL_STATIC_LIBRARIES := cpufeatures
+LOCAL_LDFLAGS += "-Wl,-z,max-page-size=16384"
+
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -108,6 +112,8 @@ LOCAL_C_INCLUDES    := \
 
 LOCAL_SRC_FILES += \
 ./lottie.cpp
+
+LOCAL_LDFLAGS += "-Wl,-z,max-page-size=16384"
 
 include $(BUILD_SHARED_LIBRARY)
 
